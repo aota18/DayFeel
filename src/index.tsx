@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { applyMiddleware, createStore } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import reducers from './modules';
+
+
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={createStoreWithMiddleware(reducers)}>
+      <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
+
   document.getElementById('root')
 );
 

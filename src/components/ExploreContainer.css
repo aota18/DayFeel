@@ -1,24 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;900&display=swap');
+
 .container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../img/clouds.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  background-position: center center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  text-shadow: 1px 1px 2px gray;
+  padding: 1rem 1rem 1rem 1rem;
+  animation-name: move-right;
+  animation-duration: 120s;
+  
 }
 
-.container strong {
-  font-size: 20px;
-  line-height: 26px;
+@keyframes move-right {
+  from {background-position: left;}
+  to {background-position: right;}
 }
 
-.container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+.type-b {
+  -webkit-animation: move-right 120s linear infinite ; /* Safari 4+ */
+  -moz-animation:    move-right 120s linear infinite ; /* Fx 5+ */
+  -o-animation:      move-right 120s linear infinite ; /* Opera 12+ */
+  animation:         move-right 120s linear infinite ; /* IE 10+, Fx 29+ */
 }
 
-.container a {
-  text-decoration: none;
+.text-weather-main {
+  font-size:x-large;
+}
+.text-weather-sub{
+  font-size:medium;
+}
+
+.text-temp {
+  font-size: 4rem;
+}
+
+.text-city {
+  font-size:2rem;
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  
+}
+.info-section {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 900;
 }
