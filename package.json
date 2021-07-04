@@ -77,4 +77,5 @@
     "@capacitor/cli": "3.0.2"
   },
   "description": "An Ionic project"
+  
 }

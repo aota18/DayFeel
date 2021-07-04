@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url(../img/clouds.jpg);
+
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -23,6 +23,23 @@
 @keyframes move-right {
   from {background-position: left;}
   to {background-position: right;}
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.appear {
+  -webkit-animation: appear 1s linear; /* Safari 4+ */
+  -moz-animation:    appear 1s linear; /* Fx 5+ */
+  -o-animation:      appear 1s linear; /* Opera 12+ */
+  animation:         appear 1s linear; /* IE 10+, Fx 29+ */
 }
 
 .type-b {

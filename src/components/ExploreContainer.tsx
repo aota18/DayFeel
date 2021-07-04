@@ -9,7 +9,7 @@ import { Icon, InlineIcon } from '@iconify/react';
 import baselineDeviceThermostat from '@iconify-icons/ic/baseline-device-thermostat';
 import bxsDroplet from '@iconify-icons/bx/bxs-droplet';
 
-import moment from 'moment';
+import moment, { weekdays } from 'moment';
 import { url } from 'inspector';
 
 interface ContainerProps { }
@@ -99,36 +99,36 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
 
   return (
     
-    <div className="container type-b">
-   
+    <div className="container type-b " style={{
+      backgroundImage: `url(${weatherInfo.data?.result.imgUrl})`
+    }}>
       
-      <div className="text-city">
-        {weatherInfo.data?.name}, {weatherInfo.data?.sys.country}
+    
+      
+      <div className="text-city appear">
+        {weatherInfo.data?.result.city}, {weatherInfo.data?.result.country}
       </div>
-      <div className="text-temp">
-        {(weatherInfo.data?.main.temp-273).toFixed(1)}°
+      <div className="text-temp appear">
+        {(weatherInfo.data?.result.temp-273).toFixed(1)}°
       </div>
     
-      <div className="text-weather-main">
-        {weatherInfo.data?.weather[0].main}
+      <div className="text-weather-main appear">
+        {weatherInfo.data?.result.main}
       </div>
-      <div className="text-weather-sub">
-        {weatherInfo.data?.weather[0].description}
+      <div className="text-weather-sub appear">
+        {weatherInfo.data?.result.description}
       </div>
     
-      <div>
+      <div className="appear">
         {`${today.format('MM/DD')} ${dayOfWeek[today.day()]}`}
       </div>
        
 
-      <div>
-        <Icon icon={bxsDroplet}/>{weatherInfo.data?.main.humidity}%
+      <div className="appear">
+        <Icon icon={bxsDroplet}/>{weatherInfo.data?.result.humidity}%
       </div>
 
-      
-      {/* <video autoPlay loop muted>
-        <source src={clear} type="video/mp4"/>
-      </video> */}
+    
    
     </div>
   );
