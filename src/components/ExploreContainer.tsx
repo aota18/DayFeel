@@ -8,9 +8,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { Icon, InlineIcon } from '@iconify/react';
 import baselineDeviceThermostat from '@iconify-icons/ic/baseline-device-thermostat';
 import bxsDroplet from '@iconify-icons/bx/bxs-droplet';
-
 import moment, { weekdays } from 'moment';
-import { url } from 'inspector';
+import { Geolocation} from '@capacitor/geolocation';
+import {isPlatform} from '@ionic/react'
 
 interface ContainerProps { }
 
@@ -28,36 +28,14 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
     6: 'SAT'
   }
 
-  const weatherPattern = {
-    2: {
-      group: "Thunderstorm",
-      img : "thunderstorm.jpg"
-    },
-    3: {
-      group: "Drizzle",
-      img : "drizzle.jpg"
-    },
-    5: {
-      group: "Rain",
-      img : "rain.jpg"
-    },
-    6: {
-      group: "Snow",
-      img : "snow.jpg"
-    },
-    7: {
-      group: "Atmosphere",
-      img : "atmosphere.jpg"
-    },
-    8: {
-      group: "Clouds",
-      img : "clouds.jpg"
-    },
-    800: {
-      group: "Clear",
-      img : "clear.jpg"
-    },
+  const getCurrentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+
+    dispatch(getWeatherInfo({lat: coordinates.coords.latitude, lgt:coordinates.coords.longitude}));
+    setGeoLoading(false);
+    console.log('Current position: ', coordinates);
   }
+
 
   const today = moment();
 
@@ -68,21 +46,9 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
 
 
   useEffect(() => {
-    
-    if(navigator.geolocation){
-      setGeoLoading(true);
-      navigator.permissions.query({name: "geolocation"}).then((result) => {
-        if(result.state=="granted"){
-          navigator.geolocation.getCurrentPosition(pos => {
-            dispatch(getWeatherInfo({lat: pos.coords.latitude, lgt:pos.coords.longitude}));
-            setGeoLoading(false);
-          });
-        }else if(result.state==="denied"){
-          console.log("Denied");
-        }
-      })
-     
-    }
+
+    setGeoLoading(true);
+    getCurrentPosition();
     
     
     
@@ -94,7 +60,12 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
   const [res, setRes] = useState({});
 
   if(geoLoading || weatherInfo.loading){
-    return <CircularProgress />
+    return(
+    <div className="display-center">
+       <CircularProgress />
+    </div>
+    )
+   
   }
 
   return (

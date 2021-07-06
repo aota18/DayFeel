@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;900&display=swap');
 
+.display-center {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -12,6 +19,7 @@
   width: 100vw;
   background-position: center center;
   font-family: 'Noto Sans KR', sans-serif;
+  color: white;
   font-weight: 300;
   text-shadow: 1px 1px 2px gray;
   padding: 1rem 1rem 1rem 1rem;

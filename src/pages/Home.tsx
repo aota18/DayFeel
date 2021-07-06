@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-      
+
         <ExploreContainer />
       </IonContent>
     </IonPage>
