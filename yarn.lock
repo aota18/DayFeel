@@ -1255,6 +1255,11 @@
   resolved "https://registry.yarnpkg.com/@capacitor/keyboard/-/keyboard-1.0.2.tgz#c703f0c9480b1daefc2be60ff4182238b3b98b61"
   integrity sha512-JdIkYXfrfiuP/iLxO65GJe8rY+VcCoGesPzu/eMHRoWOuRyRcwjw9AtVOPyAXj4qPq1bbmGB8if/m2/R1S1X9A==
 
+"@capacitor/splash-screen@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@capacitor/splash-screen/-/splash-screen-1.0.2.tgz#5f44bde70b30570ca0b44c5ede59d8acca47b616"
+  integrity sha512-5pf/K7SKfRfZ7p9AgRqULaL7+PQh+InWCvP7HAbzjgVGzvRhps7tMRCoY9do5GN3vvRl7jY1+yGYQG44s52AAA==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1262,6 +1267,11 @@
   dependencies:
     exec-sh "^0.3.2"
     minimist "^1.2.0"
+
+"@codetrix-studio/capacitor-google-auth@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@codetrix-studio/capacitor-google-auth/-/capacitor-google-auth-3.0.2.tgz#a095135311805bf1134bcf81a8246788008f3849"
+  integrity sha512-DsWwiBPkwWY/2F7JPq4mpNrKJYafpVZY+6Pq/ov5CeospRXJPauxEPHexo6uV6N5Yi6YIAwSBJqZhOZCdBURTg==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"

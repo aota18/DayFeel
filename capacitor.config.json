@@ -2,5 +2,12 @@
 	"appId": "io.ionic.starter",
 	"appName": "weather-forecast",
 	"webDir": "build",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"GoogleAuth": {
+			"scopes": ["profile", "email"],
+			"serverClientId": "1026927335399-bdsrvuirahvg688r43akt5m1b90agk5b.apps.googleusercontent.com",
+			"forceCodeForRefreshToken": true
+		}
+	}
 }

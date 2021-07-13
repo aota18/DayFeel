@@ -8,7 +8,7 @@ export const createPromiseThunk = (type: string, promiseCreator:any) => {
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
     
     return param => async dispatch => {
-        console.log(param)
+
         dispatch({type, param});
 
         try{
