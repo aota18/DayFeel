@@ -1,3 +1,5 @@
+import { GET_PLACES, setPlaces } from "../modules/place";
+
 interface createPromiseThunkProps {
     type: string;
     promiseCreator: any;
@@ -7,19 +9,39 @@ export const createPromiseThunk = (type: string, promiseCreator:any) => {
 
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
     
-    return param => async dispatch => {
+    return (param: any) => async (dispatch: any) => {
 
         dispatch({type, param});
 
         try{
             const payload = await promiseCreator(param);
+
             dispatch({ type: SUCCESS, payload});
             
         } catch(e) {
             dispatch({ type: ERROR, payload: e, error: true})
         }
     }
+}
 
+
+export const customPromiseThunk = (type: string) => {
+    
+    const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
+
+    return param => async dispatch => {
+         dispatch({type, payload:param});
+   
+        try {
+        
+            
+            dispatch({ type: SUCCESS, payload:param});
+           
+        }catch(e){
+        
+            dispatch({ type: ERROR, payload: e, error: true})
+        }
+    }
 }
 
 
@@ -52,6 +74,8 @@ export const reducerUtils = {
 
 export const handleAsyncActions = (type, key ) => {
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
+
+    console.log(type, key);
     
     return (state, action) => {
         switch(action.type) {
@@ -61,10 +85,10 @@ export const handleAsyncActions = (type, key ) => {
                     [key]: reducerUtils.loading()
                 };
             case SUCCESS:
-                
+                console.log(key, action.payload)
                 return {
                     ...state,
-                    [key]: reducerUtils.success(action.payload.data)
+                    [key]: reducerUtils.success(action.payload.data),
                 };
 
             case ERROR:

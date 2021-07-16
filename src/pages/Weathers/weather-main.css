@@ -1,18 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;900&display=swap');
 
-.display-center {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-}
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 
+  
+  border-radius: 1rem 1rem 0 0;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -25,37 +18,33 @@
   padding: 1rem 1rem 1rem 1rem;
   animation-name: move-right;
   animation-duration: 120s;
-  
 }
 
-@keyframes move-right {
-  from {background-position: left;}
-  to {background-position: right;}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
 
-  100% {
-    opacity: 1;
-  }
+.place-list {
+  display: flex;
+  flex-direction: column;
+  width:100%;
 }
 
-.appear {
-  -webkit-animation: appear 1s linear; /* Safari 4+ */
-  -moz-animation:    appear 1s linear; /* Fx 5+ */
-  -o-animation:      appear 1s linear; /* Opera 12+ */
-  animation:         appear 1s linear; /* IE 10+, Fx 29+ */
+.place-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:100%;
+  padding:1rem;
+  animation-name: move-right;
+  animation-duration: 120s;
 }
 
-.type-b {
-  -webkit-animation: move-right 120s linear infinite ; /* Safari 4+ */
-  -moz-animation:    move-right 120s linear infinite ; /* Fx 5+ */
-  -o-animation:      move-right 120s linear infinite ; /* Opera 12+ */
-  animation:         move-right 120s linear infinite ; /* IE 10+, Fx 29+ */
-}
 
 .text-weather-main {
   font-size:x-large;
@@ -85,3 +74,7 @@
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
 }
+
+
+
+

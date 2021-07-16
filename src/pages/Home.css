@@ -7,3 +7,88 @@
 ** Bold - 700;
 ** Black - 900;
 */
+
+
+:root {
+    --ion-background-color: #FFFFFF;
+}
+
+.modal {
+    position: fixed;
+    z-index: 99;
+    bottom:0px;
+    width:100%;
+    height:95%;
+  
+    background:rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    opacity: 1;
+    border-radius: 1rem 1rem 0px 0px;
+  
+  
+    
+  }
+  
+  .bottom-up{
+    animation-name: bottom-up;
+    animation-duration:0.2s;
+  }
+  
+  .top-down{
+    animation-name: top-down;
+    animation-duration:0.2s;
+    animation-fill-mode: forwards; 
+  }
+
+  .appear {
+    -webkit-animation: appear 1s linear; /* Safari 4+ */
+    -moz-animation:    appear 1s linear; /* Fx 5+ */
+    -o-animation:      appear 1s linear; /* Opera 12+ */
+    animation:         appear 1s linear; /* IE 10+, Fx 29+ */
+  }
+  
+  .move-right {
+    -webkit-animation: move-right 120s linear infinite ; /* Safari 4+ */
+    -moz-animation:    move-right 120s linear infinite ; /* Fx 5+ */
+    -o-animation:      move-right 120s linear infinite ; /* Opera 12+ */
+    animation:         move-right 120s linear infinite ; /* IE 10+, Fx 29+ */
+  }
+  
+  
+  
+  @keyframes top-down {
+    from {
+      bottom: 0px;
+    }
+  
+    to {
+      bottom: -95%;
+      display: none;
+    }
+  }
+  
+  @keyframes bottom-up {
+    from {
+      bottom: -95%;
+    }
+  
+    to {
+      bottom: 0px;
+    }
+  }
+
+  @keyframes move-right {
+    from {background-position: left;}
+    to {background-position: right;}
+  }
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  

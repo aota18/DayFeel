@@ -1,0 +1,32 @@
+.place-list {
+    display: flex;
+    flex-direction: column;
+   
+    width:100%;
+}
+
+.place-item {
+    width:100%;
+    padding:1rem;
+    animation-name: move-right;
+    animation-duration: 120s;
+}
+
+.place-list-container {
+    display: flex;
+    height: 100%;
+    flex-direction:column;
+
+
+  
+}
+
+.bottom-icon-container {
+    display: flex;
+    width:100%;
+  
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1rem;
+  
+}

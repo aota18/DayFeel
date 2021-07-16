@@ -13,8 +13,9 @@ const GET_WEATHER_INFO_ERROR = 'weather/GET_WEATHER_INFO_ERROR';
 
 
 
-/* Action Creator */
 
+
+/* Action Creator */
 export const getWeatherInfo = createPromiseThunk(GET_WEATHER_INFO, WeatherAPI.getWeatherInfo);
 
 
@@ -25,6 +26,7 @@ export const getWeatherInfo = createPromiseThunk(GET_WEATHER_INFO, WeatherAPI.ge
 const initialState = {
     getWeatherInfo : reducerUtils.initial(),
 
+
 };
 
 export default function weather(state = initialState, action) {
@@ -33,7 +35,8 @@ export default function weather(state = initialState, action) {
         case GET_WEATHER_INFO_SUCCESS:
         case GET_WEATHER_INFO_ERROR:
             return handleAsyncActions(GET_WEATHER_INFO, 'getWeatherInfo')(state, action);
-       
+        
+
         default:
             return state;
     }
