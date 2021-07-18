@@ -1260,6 +1260,11 @@
   resolved "https://registry.yarnpkg.com/@capacitor/splash-screen/-/splash-screen-1.0.2.tgz#5f44bde70b30570ca0b44c5ede59d8acca47b616"
   integrity sha512-5pf/K7SKfRfZ7p9AgRqULaL7+PQh+InWCvP7HAbzjgVGzvRhps7tMRCoY9do5GN3vvRl7jY1+yGYQG44s52AAA==
 
+"@capacitor/storage@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@capacitor/storage/-/storage-1.0.3.tgz#7c69a32001358de9ce95f844a96438e6cd9656a9"
+  integrity sha512-tY1Rb5qVbiCPm1G983jkgvqU28oVe2/BByVC29AJ8efZ4V46NqfXcmj12Ve1KiAo/XIwtp8li/GXcdCT1QnyQg==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

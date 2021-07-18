@@ -10,6 +10,7 @@
     "@capacitor/ios": "3.0.2",
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/splash-screen": "1.0.2",
+    "@capacitor/storage": "1.0.3",
     "@codetrix-studio/capacitor-google-auth": "3.0.2",
     "@iconify-icons/bx": "1.1.0",
     "@iconify-icons/ic": "1.1.6",

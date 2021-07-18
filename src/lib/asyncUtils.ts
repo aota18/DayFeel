@@ -1,4 +1,6 @@
 import { GET_PLACES, setPlaces } from "../modules/place";
+import { Storage} from '@capacitor/storage';
+import user from "../modules/user";
 
 interface createPromiseThunkProps {
     type: string;
@@ -33,8 +35,6 @@ export const customPromiseThunk = (type: string) => {
          dispatch({type, payload:param});
    
         try {
-        
-            
             dispatch({ type: SUCCESS, payload:param});
            
         }catch(e){
@@ -85,7 +85,14 @@ export const handleAsyncActions = (type, key ) => {
                     [key]: reducerUtils.loading()
                 };
             case SUCCESS:
-                console.log(key, action.payload)
+             
+                if(key==='login') {
+                   
+                    Storage.set({
+                        key: 'userId',
+                        value: action.payload.data.user.id
+                    })
+                }
                 return {
                     ...state,
                     [key]: reducerUtils.success(action.payload.data),

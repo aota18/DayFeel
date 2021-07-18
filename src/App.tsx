@@ -2,7 +2,6 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-import Home from './pages/Home';
 import WeatherList from './pages/Weathers/weather-list'
 
 /* Core CSS required for Ionic components to work properly */
@@ -25,25 +24,25 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Login from './pages/Login/Login';
 
+import './App.css'
+
 const App: React.FC = () => {
   
   GoogleAuth.init();
+
 
   return(
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/weathers">
-          <WeatherList />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
+
+        <Route exact path="/weathers" component={WeatherList} />
+    
+ 
+        <Route exact path="/login" component={Login} />
+         
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/weathers" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

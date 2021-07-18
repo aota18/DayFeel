@@ -6,7 +6,7 @@ import './weather-list.css';
 import redux from 'redux';
 import SearchCity from "./search-city";
 import WeatherMain from "./weather-main";
-import { IonButton } from "@ionic/react";
+import { IonButton, IonPage } from "@ionic/react";
 
 const WeatherList:React.FC<any> =  () => {
 
@@ -46,7 +46,7 @@ const WeatherList:React.FC<any> =  () => {
 
 
     return (
-
+        <IonPage>
         <div className="place-list-container">
        
             {!placesData.loading ? 
@@ -97,6 +97,7 @@ const WeatherList:React.FC<any> =  () => {
             </div>
             
         </div> 
+        </IonPage>
         
     )
 }
