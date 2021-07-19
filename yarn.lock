@@ -1235,6 +1235,13 @@
   dependencies:
     tslib "^2.1.0"
 
+"@capacitor/core@^1.3.0":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-1.5.3.tgz#254d4d0c56e01a1837551970b1f09befec15c1cf"
+  integrity sha512-Tohy9+koVDAc7+HaZmXzcRQSGhrvUczcifmvI9o4KamhXJSGajJCdDZV+n7FUqWpfDf470kKiA+SeyhD7OeL1w==
+  dependencies:
+    tslib "^1.9.0"
+
 "@capacitor/geolocation@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@capacitor/geolocation/-/geolocation-1.0.2.tgz#e75e0262af83ee6fadab95108c1b0c157c98a948"
@@ -1260,7 +1267,7 @@
   resolved "https://registry.yarnpkg.com/@capacitor/splash-screen/-/splash-screen-1.0.2.tgz#5f44bde70b30570ca0b44c5ede59d8acca47b616"
   integrity sha512-5pf/K7SKfRfZ7p9AgRqULaL7+PQh+InWCvP7HAbzjgVGzvRhps7tMRCoY9do5GN3vvRl7jY1+yGYQG44s52AAA==
 
-"@capacitor/storage@1.0.3":
+"@capacitor/storage@1.0.3", "@capacitor/storage@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@capacitor/storage/-/storage-1.0.3.tgz#7c69a32001358de9ce95f844a96438e6cd9656a9"
   integrity sha512-tY1Rb5qVbiCPm1G983jkgvqU28oVe2/BByVC29AJ8efZ4V46NqfXcmj12Ve1KiAo/XIwtp8li/GXcdCT1QnyQg==
@@ -9971,6 +9978,25 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
+redux-persist-capacitor-storage@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/redux-persist-capacitor-storage/-/redux-persist-capacitor-storage-1.0.8.tgz#db2384a65aaf1de6c013525f8b2ae131d4bbc575"
+  integrity sha512-DeqN90CREbnelgzyMCo2dGgqdQIhTLG4UfgWF85WjYF6wLjs1FygzVAKxLIxnKufYrZUrlqFOH/5gsyWgPfbDg==
+  dependencies:
+    "@capacitor/core" "^1.3.0"
+
+redux-persist-capacitor@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/redux-persist-capacitor/-/redux-persist-capacitor-1.0.3.tgz#caa84c14e69d2d580064c7abd3d74baca2f9368f"
+  integrity sha512-GEyVv/snbNWT71sE/p1xV4yvBO9wI+DKLwdcNdZs7tixNEkpWE7fmLeGE5xKa8HDCmhB5jE3sNs4G+UJJA1Nug==
+  dependencies:
+    "@capacitor/storage" "^1.0.3"
+
+redux-persist@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
+  integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
+
 redux-thunk@2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
@@ -11386,7 +11412,7 @@ tslib@*, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
 
-tslib@^1.8.1:
+tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==

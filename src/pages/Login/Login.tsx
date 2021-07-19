@@ -16,10 +16,15 @@ const Login: React.FC<LoginProps> = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const loginResult = useSelector((state:any) => state.user.login);
+    const loginResult = useSelector((state:any) => state);
 
     const [userId, setUserId]  = useState<any>();
 
+    const getUserId = async () => {
+        const userId = await Storage.get({key: 'userInfo'})
+
+        console.log(userId);
+    }
     useEffect(() => {
         
         if(!loginResult.loading && loginResult.data?.ok){
@@ -57,6 +62,10 @@ const Login: React.FC<LoginProps> = () => {
                     Login with Google
                 </IonButton>
 
+
+                <IonButton onClick={() => getUserId()}>
+
+                </IonButton>
 
                 {JSON.stringify(loginResult)}
             </IonContent>

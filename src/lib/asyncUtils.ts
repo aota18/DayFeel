@@ -89,7 +89,7 @@ export const handleAsyncActions = (type, key ) => {
                 if(key==='login') {
                    
                     Storage.set({
-                        key: 'userId',
+                        key: 'userInfo',
                         value: action.payload.data.user.id
                     })
                 }

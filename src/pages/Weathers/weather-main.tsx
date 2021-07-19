@@ -7,6 +7,7 @@ import { ListOutline } from 'react-ionicons'
 
 
 interface WeatherMainProps {
+  index: number;
   isOpened?: boolean;
   onToggle: any;
   weatherInfo?: any;
@@ -15,6 +16,7 @@ interface WeatherMainProps {
 
 
 const WeatherMain: React.FC<WeatherMainProps> = ({
+  index,
   isOpened,
   onToggle,
   weatherInfo,
@@ -40,54 +42,70 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
 
   return (
     <>
-    {isOpened ?
+   
 
     
     <div 
-    className="container move-right " 
+    className={` ${isOpened? 'container move-right expand-display' : 'place-list shirink-display'}`}
     style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}>
 
+    
+    {isOpened ? 
+    <div className="main-container">
       
+    <div className="text-city appear">
+      {weatherInfo.city}, {weatherInfo.country}
+    </div>
+    <div className="text-temp appear">
+      {(weatherInfo.temp-273).toFixed(1)}°
+    </div>
+  
+    <div className="text-weather-main appear">
+      {weatherInfo.main}
+    </div>
+    <div className="text-weather-sub appear">
+      {weatherInfo.description}
+    </div>
+  
+    <div className="appear">
+      {`${today.format('MM/DD')} ${dayOfWeek[today.day()]}`}
+    </div>
+   
+    <div className="appear">
+      <Icon icon={bxsDroplet}/>{weatherInfo.humidity}%
+    </div>
 
-
-      <div className="main-container">
+    <div >
+      <ListOutline
+        color={'#00000'} 
+        height="24px"
+        width="24px"
+        onClick={() => onToggle(index)}
+      />
+        </div>
+  </div>
+:
+<div 
+  className="place-item" onClick={() => {onToggle(index)}} style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}>
+<div style={{display: 'flex', flexDirection:'column'}}>
+  <div>
+   {`${today.format('MM/DD')}`}
+  </div>
+  <div style={{fontSize: '2rem'}}>
+    {weatherInfo.city}
+   </div>
+ </div>
+ <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', fontSize:'3rem', fontWeight:'lighter'}}>
+   {(weatherInfo.temp-273).toFixed(1)}°
+ </div>
+</div>
+  }
       
-        <div className="text-city appear">
-          {weatherInfo.city}, {weatherInfo.country}
-        </div>
-        <div className="text-temp appear">
-          {(weatherInfo.temp-273).toFixed(1)}°
-        </div>
-      
-        <div className="text-weather-main appear">
-          {weatherInfo.main}
-        </div>
-        <div className="text-weather-sub appear">
-          {weatherInfo.description}
-        </div>
-      
-        <div className="appear">
-          {`${today.format('MM/DD')} ${dayOfWeek[today.day()]}`}
-        </div>
-       
-        <div className="appear">
-          <Icon icon={bxsDroplet}/>{weatherInfo.humidity}%
-        </div>
-
-        <div >
-          <ListOutline
-            color={'#00000'} 
-            height="24px"
-            width="24px"
-            onClick={() => onToggle()}
-          />
-            </div>
-      </div>
-
    
     </div>
-    :
-      <div className="place-list" onClick={() => onToggle()}>
+    
+      {/* <div className="place-list shrink-display" onClick={() => {
+        onToggle(index)}}>
         <div className="place-item" style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}>
            <div style={{display: 'flex', flexDirection:'column'}}>
              <div>
@@ -101,10 +119,10 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
               {(weatherInfo.temp-273).toFixed(1)}°
             </div>
         </div>
-      </div>
+      </div> */}
 
     
-    }
+    
   
   </>
   );

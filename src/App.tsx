@@ -25,9 +25,14 @@ import './theme/variables.css';
 import Login from './pages/Login/Login';
 
 import './App.css'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { Storage} from '@capacitor/storage';
 
 const App: React.FC = () => {
   
+
+
   GoogleAuth.init();
 
 
@@ -42,7 +47,7 @@ const App: React.FC = () => {
         <Route exact path="/login" component={Login} />
          
         <Route exact path="/">
-          <Redirect to="/weathers" />
+          <Redirect to="/login" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

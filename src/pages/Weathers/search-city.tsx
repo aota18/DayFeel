@@ -133,8 +133,10 @@ const SearchCity:React.FC<any> =  ({onToggleModal}) => {
                 isWeatherModalOpen &&
              <div className={`modal ${isWeatherModalOpen ? 'bottom-up' : 'top-down'}`}>
                 <AddWeather
-                onToggle={onToggleWeatherModal}
-                locationInfo={selectedLocation}
+                    onClearInput={onClearInput}
+                    onToggleSearch={onToggleModal}
+                    onToggle={onToggleWeatherModal}
+                    locationInfo={selectedLocation}
                 />
             </div>
             }

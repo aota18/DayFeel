@@ -5,19 +5,23 @@ import { getWeatherInfo } from '../../modules/weather';
 import { useDispatch, useSelector } from 'react-redux';
 import bxsDroplet from '@iconify-icons/bx/bxs-droplet';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { addPlace } from "../../modules/place";
+import { addPlace, getPlaces } from "../../modules/place";
+
 
 
 interface AddWeatherProps {
+    onClearInput: any;
+    onToggleSearch: any;
     onToggle: any;
     locationInfo?: any;
 }
   
   
   
-  const AddWeather: React.FC<AddWeatherProps> = ({ onToggle,locationInfo}) => {
+  const AddWeather: React.FC<AddWeatherProps> = ({onClearInput, onToggleSearch, onToggle,locationInfo}) => {
 
-  
+    const addPlaceInfo = useSelector((state:any) => state.place.addPlace);
+    const loginInfo = useSelector((state:any) => state.user.login);
   
     const dayOfWeek={
       0: 'SUN',
@@ -35,23 +39,34 @@ interface AddWeatherProps {
 
     const onPressAddPlace = () => {
         dispatch(addPlace({
+            userId: loginInfo.data?.user.id,
             country: weatherInfo.data?.result.country,
             city: weatherInfo.data?.result.city,
             latitude: locationInfo.latitude,
             longitude: locationInfo.longitude
-        }))
+        }));
     }
+
+    
 
     const weatherInfo = useSelector((state:any) => state.weather.getWeatherInfo)
    
     useEffect(() => {
 
-            console.log('should dispatch');
             dispatch(getWeatherInfo({lat: locationInfo.latitude, lgt: locationInfo.longitude}))
-        
-            
+
     }, [locationInfo]);
 
+
+    useEffect(() => {
+
+      if(!addPlaceInfo.loading && addPlaceInfo.data?.ok){
+        onToggle()
+        onToggleSearch()
+        dispatch(getPlaces({email: loginInfo.data?.user.email}))
+      }
+
+    }, [addPlaceInfo])
 
     if(weatherInfo.loading){
         return(
@@ -99,8 +114,7 @@ interface AddWeatherProps {
           </div>
   
         </div>
-        {JSON.stringify(weatherInfo)}
-        {JSON.stringify(locationInfo)}
+   
     </div>
   
 
