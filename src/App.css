@@ -13,9 +13,15 @@
     backdrop-filter: blur(30px);
     opacity: 1;
     border-radius: 1rem 1rem 0px 0px;
-  
-  
     
+  }
+
+  .loading {
+    color: white;
+    animation: up-and-down 1s linear infinite;
+    position: relative;
+    left: 0;
+    bottom: 0;
   }
   
   .bottom-up{
@@ -108,5 +114,17 @@
       display: flex;
 
 
+    }
+  }
+
+
+
+  @keyframes up-and-down {
+    0%, 100% {
+      bottom: 0;
+    }
+
+    50% {
+      bottom: 10px;
     }
   }

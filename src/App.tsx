@@ -31,7 +31,7 @@ import { Storage} from '@capacitor/storage';
 
 const App: React.FC = () => {
   
-
+  console.log(process.env.NODE_ENV)
 
   GoogleAuth.init();
 

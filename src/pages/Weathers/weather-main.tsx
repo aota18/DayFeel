@@ -33,7 +33,7 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
     6: 'SAT'
   }
 
-
+  
 
   const today = moment();
 
@@ -53,6 +53,7 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
     {isOpened ? 
     <div className="main-container">
       
+    <div className="sub-container">
     <div className="text-city appear">
       {weatherInfo.city}, {weatherInfo.country}
     </div>
@@ -74,52 +75,40 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
     <div className="appear">
       <Icon icon={bxsDroplet}/>{weatherInfo.humidity}%
     </div>
+    </div>
 
-    <div >
+    <div className="bottom-icon-container">
       <ListOutline
         color={'#00000'} 
         height="24px"
         width="24px"
         onClick={() => onToggle(index)}
       />
-        </div>
+    </div>
   </div>
 :
 <div 
-  className="place-item" onClick={() => {onToggle(index)}} style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}>
-<div style={{display: 'flex', flexDirection:'column'}}>
-  <div>
-   {`${today.format('MM/DD')}`}
+  className="place-item" 
+  onClick={() => {onToggle(index)}} 
+  style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}
+>
+  <div style={{display: 'flex', flexDirection:'column'}}>
+    <div>
+    {`${today.format('MM/DD')}`}
+    </div>
+    <div style={{fontSize: '2rem'}}>
+      {weatherInfo.city}
+    </div>
   </div>
-  <div style={{fontSize: '2rem'}}>
-    {weatherInfo.city}
-   </div>
- </div>
- <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', fontSize:'3rem', fontWeight:'lighter'}}>
-   {(weatherInfo.temp-273).toFixed(1)}°
- </div>
+  <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', fontSize:'3rem', fontWeight:'lighter'}}>
+    {(weatherInfo.temp-273).toFixed(1)}°
+  </div>
 </div>
   }
       
    
     </div>
     
-      {/* <div className="place-list shrink-display" onClick={() => {
-        onToggle(index)}}>
-        <div className="place-item" style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}>
-           <div style={{display: 'flex', flexDirection:'column'}}>
-             <div>
-              {`${today.format('MM/DD')}`}
-             </div>
-             <div style={{fontSize: '2rem'}}>
-               {weatherInfo.city}
-              </div>
-            </div>
-            <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', fontSize:'3rem', fontWeight:'lighter'}}>
-              {(weatherInfo.temp-273).toFixed(1)}°
-            </div>
-        </div>
-      </div> */}
 
     
     

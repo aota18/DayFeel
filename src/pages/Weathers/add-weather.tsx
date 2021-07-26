@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import bxsDroplet from '@iconify-icons/bx/bxs-droplet';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { addPlace, getPlaces } from "../../modules/place";
+import './add-weather.css';
 
 
 
@@ -89,7 +90,7 @@ interface AddWeatherProps {
         </div>
   
   
-        <div className="main-container">
+        <div className="sub-container">
         
           <div className="text-city appear">
             {weatherInfo.data?.result.city}, {weatherInfo.data?.result.country}

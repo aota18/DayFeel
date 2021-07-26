@@ -7,7 +7,7 @@ import redux from 'redux';
 import SearchCity from "./search-city";
 import WeatherMain from "./weather-main";
 import { IonButton, IonPage } from "@ionic/react";
-import { stringify } from "querystring";
+import cloudIcon from '../../img/cloud-icon.png';
 
 const WeatherList:React.FC<any> =  () => {
 
@@ -55,13 +55,31 @@ const WeatherList:React.FC<any> =  () => {
     }, [getPlacesData])
 
 
+    if(getPlacesData.loading){
+        return (
+            <IonPage style={{
+                display:"flex",
+                alignItems: "center",
+                justifyContent:"center"
+            }}>
+                <div className="loading">
+                    <img src={cloudIcon} width="64px"/>
+                    <div>
+                        Loading ...
+                    </div>
+                </div>
+            </IonPage>
+        )
+    }
+
+
     return (
         <IonPage>
-              {JSON.stringify(stat)}
+    
         <div className="place-list-container">
 
        
-            {!placesData.loading ? 
+   
             <div className="place-list">
                 {placesData.data?.map((place:any, idx:number) => {
                     return (
@@ -80,23 +98,11 @@ const WeatherList:React.FC<any> =  () => {
 
                
                
-            </div> : <div></div>
-            } 
+            </div> 
+    
 
   
-        
-
-
-        {/* Search Modal Pop-up*/}
-            <div className={`modal ${isSearchModalOpen ? 'bottom-up' : 'top-down'}`}>
-                <SearchCity 
-                    onToggleModal = {onToggleSearchModal} 
-        
-                />
-            </div>
-
-        
-
+    
             <div className="bottom-icon-container">
                 <SearchOutline
                     color={'#00000'} 
@@ -105,8 +111,20 @@ const WeatherList:React.FC<any> =  () => {
                     onClick={() => onToggleSearchModal()}
                 />
             </div>
+
+            
             
         </div> 
+
+         {/* Search Modal Pop-up*/}
+         { isSearchModalOpen &&
+         <div className={`modal ${isSearchModalOpen ? 'bottom-up' : 'top-down'}`}>
+                <SearchCity 
+                    onToggleModal = {onToggleSearchModal} 
+        
+                />
+            </div>
+        }   
         </IonPage>
         
     )

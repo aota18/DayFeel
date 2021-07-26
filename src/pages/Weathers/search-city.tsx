@@ -36,14 +36,13 @@ const SearchCity:React.FC<any> =  ({onToggleModal}) => {
 
 
     const handleChange = (e) => {
-        debounceHandleChange(e.target);
         setKeyword(e.target.value);
+        debounceHandleChange.current(e.target);
     }
 
-    const debounceHandleChange = _.debounce((target) => {
-        console.log('dispatch');
+    const debounceHandleChange = useRef(_.debounce((target) => {
         dispatch(searchPlace({keyword : target.value}));
-    }, 0);
+    }, 500));
 
 
 
@@ -60,18 +59,19 @@ const SearchCity:React.FC<any> =  ({onToggleModal}) => {
                 
                 <div className="custom-input">
            
-                 <SearchOutline
+                    <SearchOutline
                         color={'#00000'} 
                         height="20px"
                         width="20px"
 
                     />
                   
-                   
-                    <IonInput 
+                    <div className="input-box">
+                    <IonInput
                         value={keyword} 
-                        onIonChange={handleChange}> 
-                    </IonInput>
+                        onIonChange={handleChange}
+                    /> 
+                    </div>
                  
                    
                     <CloseCircle
@@ -106,7 +106,7 @@ const SearchCity:React.FC<any> =  ({onToggleModal}) => {
             <div className="list">
             
                 
-                {!searchPlaceData.loading ? (searchPlaceData.data?.cities.map((city: any, idx) => {
+                {!searchPlaceData.loading && (searchPlaceData.data?.cities.length > 0) ? (searchPlaceData.data?.cities.map((city: any, idx) => {
                     return (
                         <div className="list-item" key={idx} onClick={() => {
                             setSelectedLocation({
