@@ -47,7 +47,10 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
     
     <div 
     className={` ${isOpened? 'container move-right expand-display' : 'place-list shirink-display'}`}
-    style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}>
+    style={{ 
+      backgroundImage: `url(${weatherInfo.imgUrl})`,
+     
+    }}>
 
     
     {isOpened ? 
@@ -90,7 +93,10 @@ const WeatherMain: React.FC<WeatherMainProps> = ({
 <div 
   className="place-item" 
   onClick={() => {onToggle(index)}} 
-  style={{ backgroundImage: `url(${weatherInfo.imgUrl})`}}
+  style={{ 
+    backgroundImage: `url(${weatherInfo.imgUrl})`,
+    paddingTop: `${ index===0 ? '50px' : '16px' }`
+  }}
 >
   <div style={{display: 'flex', flexDirection:'column'}}>
     <div>

@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonInput, IonButton, IonList } from "@ionic/react";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { getPlaces, searchPlace } from "../../modules/place";
+import { clearAddPlace, getPlaces, searchPlace } from "../../modules/place";
 import { SearchOutline } from 'react-ionicons'
 import { CloseCircle } from 'react-ionicons'
 import _ from 'lodash';
@@ -108,7 +108,9 @@ const SearchCity:React.FC<any> =  ({onToggleModal}) => {
                 
                 {!searchPlaceData.loading && (searchPlaceData.data?.cities.length > 0) ? (searchPlaceData.data?.cities.map((city: any, idx) => {
                     return (
+                        
                         <div className="list-item" key={idx} onClick={() => {
+                            dispatch(clearAddPlace());
                             setSelectedLocation({
                                 latitude: city.latitude,
                                 longitude: city.longitude

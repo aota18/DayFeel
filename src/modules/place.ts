@@ -13,6 +13,7 @@ export const SET_PLACES_ERROR = 'place/SET_PLACES_ERROR'
 export const ADD_PLACE = 'place/ADD_PLACE'
 export const ADD_PLACE_SUCCESS = 'place/ADD_PLACE_SUCCESS'
 export const ADD_PLACE_ERROR = 'place/ADD_PLACE_ERROR'
+export const CLEAR_ADD_PLACE = 'place/CLEAR_ADD_PLACE'
 
 export const GET_PLACES = 'place/GET_PLACES';
 export const GET_PLACES_SUCCESS = 'place/GET_PLACES_SUCCESS';
@@ -25,13 +26,14 @@ export const SEARCH_PLACE_ERROR = 'place/SEARCH_PLACE_ERROR';
 
 
 
+
 /* Action Creator */
 export const setPlaces = customPromiseThunk(SET_PLACES);
 export const addPlace = createPromiseThunk(ADD_PLACE, PlaceAPI.addPlace);
 export const getPlaces = createPromiseThunk(GET_PLACES, PlaceAPI.getPlaces);
 export const searchPlace = createPromiseThunk(SEARCH_PLACE, PlaceAPI.searchPlace);
 
-
+export const clearAddPlace = () => ({type: CLEAR_ADD_PLACE})
 
 
 
@@ -66,6 +68,11 @@ export default function place(state = initialState, action) {
         case SET_PLACES_SUCCESS:
         case SET_PLACES_ERROR:
             return handleAsyncActions(SET_PLACES, 'places')(state, action)
+        case CLEAR_ADD_PLACE:
+            return {
+                ...state,
+                addPlace: reducerUtils.initial()
+            }
         default:
             return state;
     }

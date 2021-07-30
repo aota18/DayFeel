@@ -74,8 +74,6 @@ export const reducerUtils = {
 
 export const handleAsyncActions = (type, key ) => {
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
-
-    console.log(type, key);
     
     return (state, action) => {
         switch(action.type) {

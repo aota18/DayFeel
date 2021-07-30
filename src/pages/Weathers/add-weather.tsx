@@ -5,7 +5,7 @@ import { getWeatherInfo } from '../../modules/weather';
 import { useDispatch, useSelector } from 'react-redux';
 import bxsDroplet from '@iconify-icons/bx/bxs-droplet';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { addPlace, getPlaces } from "../../modules/place";
+import { addPlace, clearAddPlace, getPlaces } from "../../modules/place";
 import './add-weather.css';
 
 
@@ -53,21 +53,9 @@ interface AddWeatherProps {
     const weatherInfo = useSelector((state:any) => state.weather.getWeatherInfo)
    
     useEffect(() => {
-
-            dispatch(getWeatherInfo({lat: locationInfo.latitude, lgt: locationInfo.longitude}))
-
+      dispatch(getWeatherInfo({lat: locationInfo.latitude, lgt: locationInfo.longitude}))
     }, [locationInfo]);
 
-
-    useEffect(() => {
-
-      if(!addPlaceInfo.loading && addPlaceInfo.data?.ok){
-        onToggle()
-        onToggleSearch()
-        dispatch(getPlaces({email: loginInfo.data?.user.email}))
-      }
-
-    }, [addPlaceInfo])
 
     if(weatherInfo.loading){
         return(
@@ -76,6 +64,13 @@ interface AddWeatherProps {
         </div>
         )
     }
+
+    if(!addPlaceInfo.loading && addPlaceInfo.data?.ok){
+      onToggle();
+      onToggleSearch();
+      dispatch(getPlaces({email: loginInfo.data?.user.email}));
+    }
+
 
     return (
       <div 

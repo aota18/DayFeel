@@ -30,14 +30,14 @@ const Login: React.FC<LoginProps> = () => {
     }
     useEffect(() => {
         
-        // if(!loginResult.loading && loginResult.data?.ok){
-        //     dispatch(setUserInfo({data: loginResult.data.user}));
-        //     history.push('/weathers');
-        // }
+        if(!loginResult.loading && loginResult.data?.ok){
+            dispatch(setUserInfo({data: loginResult.data.user}));
+            history.push('/weathers');
+        }
 
-        // if(!loginResult.loading && !loginResult.data?.ok){
-        //     console.log('login failed')
-        // }
+        if(!loginResult.loading && !loginResult.data?.ok){
+            console.log('login failed')
+        }
         
     }, [loginResult])
 

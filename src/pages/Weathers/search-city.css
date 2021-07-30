@@ -44,6 +44,10 @@
     display:none;
 }
 
+.modal-active {
+    color: white;
+}
+
 
 
 .list-item:active {
