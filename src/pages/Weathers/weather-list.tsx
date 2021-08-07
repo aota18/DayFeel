@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPlace, getPlaces, setPlaces} from "../../modules/place";
+import { getPlaces, setPlaces} from "../../modules/place";
 import { SearchOutline } from 'react-ionicons'
-import './weather-list.css';
-import redux from 'redux';
 import SearchCity from "./search-city";
 import WeatherMain from "./weather-main";
-import { IonButton, IonPage } from "@ionic/react";
+import { IonPage } from "@ionic/react";
 import cloudIcon from '../../img/cloud-icon.png';
+import './weather-list.css';
 
 const WeatherList:React.FC<any> =  () => {
 
-    const stat = useSelector((state:any) => state);
     const loginInfo = useSelector((state:any) => state.user.login);
     const getPlacesData = useSelector((state:any) => state.place.getPlaces);
     const placesData = useSelector((state:any) => state.place.places);
@@ -27,8 +25,6 @@ const WeatherList:React.FC<any> =  () => {
         return state;
     });
 
-
-    const [isOpenWeather, setIsOpenWeather] = useState(false);
     const dispatch = useDispatch();
 
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);

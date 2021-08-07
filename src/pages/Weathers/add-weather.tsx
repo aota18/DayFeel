@@ -1,11 +1,12 @@
 import moment from "moment";
-import { Icon, InlineIcon } from '@iconify/react';
-import { useEffect, useState } from 'react';
+import { Icon } from '@iconify/react';
+import { useEffect } from 'react';
 import { getWeatherInfo } from '../../modules/weather';
 import { useDispatch, useSelector } from 'react-redux';
 import bxsDroplet from '@iconify-icons/bx/bxs-droplet';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { addPlace, clearAddPlace, getPlaces } from "../../modules/place";
+import { addPlace, getPlaces } from "../../modules/place";
+import { dayOfWeek } from '../../utils/time';
 import './add-weather.css';
 
 
@@ -19,21 +20,11 @@ interface AddWeatherProps {
   
   
   
-  const AddWeather: React.FC<AddWeatherProps> = ({onClearInput, onToggleSearch, onToggle,locationInfo}) => {
+  const AddWeather: React.FC<AddWeatherProps> = ({ onToggleSearch, onToggle,locationInfo}) => {
 
     const addPlaceInfo = useSelector((state:any) => state.place.addPlace);
     const loginInfo = useSelector((state:any) => state.user.login);
-  
-    const dayOfWeek={
-      0: 'SUN',
-      1: 'MON',
-      2: 'TUE',
-      3: 'WED',
-      4: 'THU',
-      5: 'FRI',
-      6: 'SAT'
-    }
-  
+
     const today = moment();
 
     const dispatch = useDispatch();

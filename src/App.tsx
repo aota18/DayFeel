@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonApp, IonRouterOutlet, isPlatform, setupConfig } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import WeatherList from './pages/Weathers/weather-list'
@@ -25,27 +25,28 @@ import './theme/variables.css';
 import Login from './pages/Login/Login';
 
 import './App.css'
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { Storage} from '@capacitor/storage';
+
 
 const App: React.FC = () => {
-  
-  console.log(process.env.NODE_ENV)
 
+  /* Disable animation & swiping back */
+  setupConfig({
+    animated: !isPlatform('mobileweb') && !isPlatform('mobile'),
+    swipeBackEnabled: false,
+  })
+
+
+  /* Initiating Google Auth */
   GoogleAuth.init();
 
 
   return(
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
+    <IonReactRouter >
+      <IonRouterOutlet >
 
-        <Route exact path="/weathers" component={WeatherList} />
-    
- 
         <Route exact path="/login" component={Login} />
-         
+        <Route exact path="/weathers" component={WeatherList} />
         <Route exact path="/">
           <Redirect to="/login" />
         </Route>

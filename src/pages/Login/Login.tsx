@@ -1,15 +1,13 @@
-import { IonContent, IonText, IonRow, IonCol, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonImg } from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, setUserInfo } from '../../modules/user';
 import { useHistory } from 'react-router';
-import { Storage } from '@capacitor/storage';
 import googleIcon from '../../img/google-icon.png';
 import waterfall from '../../movies/waterfall.mp4';
 import logo from '../../img/DayFeel-logos_white.png';
-import cloudIcon from '../../img/cloud-icon.png';
 import './Login.css';
 
 interface LoginProps {
@@ -23,11 +21,7 @@ const Login: React.FC<LoginProps> = () => {
 
     const loginResult = useSelector((state:any) => state.user.login);
 
-    const [userId, setUserId]  = useState<any>();
 
-    const getUserId = async () => {
-        const userId = await Storage.get({key: 'userInfo'})
-    }
     useEffect(() => {
         
         if(!loginResult.loading && loginResult.data?.ok){
@@ -44,7 +38,6 @@ const Login: React.FC<LoginProps> = () => {
     const signIn = async (): Promise<void> => {
         
         const result = await GoogleAuth.signIn();
-        // console.info('result', result);
 
         const token = result.authentication.accessToken;
 

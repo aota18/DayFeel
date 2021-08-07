@@ -1,19 +1,16 @@
-import { IonItem, IonLabel, IonInput, IonButton, IonList } from "@ionic/react";
-import { useEffect, useRef, useState } from "react";
+import { IonInput } from "@ionic/react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { clearAddPlace, getPlaces, searchPlace } from "../../modules/place";
 import { SearchOutline } from 'react-ionicons'
 import { CloseCircle } from 'react-ionicons'
 import _ from 'lodash';
-import './search-city.css';
-import axios from 'axios'
-import WeatherMain from "./weather-main";
 import AddWeather from "./add-weather";
+import './search-city.css';
 
 interface SearchCityProps {
     onToggleModal? : any;
     onToggleWeatherModal?: any
-    
 }
 
 const SearchCity:React.FC<any> =  ({onToggleModal}) => {
