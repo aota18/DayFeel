@@ -7,6 +7,9 @@ import WeatherMain from "./weather-main";
 import { IonPage } from "@ionic/react";
 import cloudIcon from "../../img/cloud-icon.png";
 import "./weather-list.css";
+import { AddCircleOutline } from 'react-ionicons'
+
+
 
 const WeatherList: React.FC<any> = () => {
   const loginInfo = useSelector((state: any) => state.user.login);
@@ -67,7 +70,18 @@ const WeatherList: React.FC<any> = () => {
     <IonPage>
       <div className="place-list-container">
         <div className="place-list">
-          {placesData.data?.map((place: any, idx: number) => {
+          {
+          placesData.data?.length <= 0 ? 
+          <div className="empty-message"> 
+          <AddCircleOutline
+            color={'#00000'} 
+            title={'Add new place'}
+            height="32px"
+            width="32px"
+          />
+            Add new place
+          </div> :
+          placesData.data?.map((place: any, idx: number) => {
             return (
               <WeatherMain
                 key={idx}
@@ -77,7 +91,8 @@ const WeatherList: React.FC<any> = () => {
                 isOpened={displayState[`place${idx}`]}
               />
             );
-          })}
+          })
+          }
         </div>
 
         <div className="bottom-icon-container">

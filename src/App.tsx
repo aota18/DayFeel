@@ -25,6 +25,7 @@ import './theme/variables.css';
 import Login from './pages/Login/Login';
 
 import './App.css'
+import Callback from './pages/callback';
 
 
 const App: React.FC = () => {
@@ -44,7 +45,7 @@ const App: React.FC = () => {
   <IonApp>
     <IonReactRouter >
       <IonRouterOutlet >
-
+        <Route exact path="/redirect" component={Callback} /> 
         <Route exact path="/login" component={Login} />
         <Route exact path="/weathers" component={WeatherList} />
         <Route exact path="/">

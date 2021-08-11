@@ -1,5 +1,5 @@
 :root {
-    --ion-background-color: #FFFFFF;
+    --ion-background-color: #000000;
 }
 
 .modal {
@@ -26,7 +26,7 @@
   
   .bottom-up{
     animation-name: bottom-up;
-    animation-duration:0.2s;
+    animation-duration:0.5s;
   }
   
   .top-down{

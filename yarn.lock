@@ -1201,6 +1201,15 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@capacitor-community/apple-sign-in@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/apple-sign-in/-/apple-sign-in-0.1.2.tgz#60edaf618a78cf99e02f6698f55156326212c081"
+  integrity sha512-mkmRsWTuRvq+yg3JWhkmYuUUZPb9yT2pcKqghKIk3mMbdx+9lxl6tmqFaJCWSSC6mh5e89udbGdvlvk0y7CKLQ==
+  dependencies:
+    "@capacitor/core" "^3.0.2"
+    "@types/scriptjs" "0.0.2"
+    scriptjs "^2.5.9"
+
 "@capacitor/app@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-1.0.2.tgz#920dbf7055aa8ba060932d6e8dcac6f8bbc821af"
@@ -1241,6 +1250,13 @@
   integrity sha512-Tohy9+koVDAc7+HaZmXzcRQSGhrvUczcifmvI9o4KamhXJSGajJCdDZV+n7FUqWpfDf470kKiA+SeyhD7OeL1w==
   dependencies:
     tslib "^1.9.0"
+
+"@capacitor/core@^3.0.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-3.1.2.tgz#0e4691ca098e1ff5bd96105b9523122768e8657d"
+  integrity sha512-cMqDY4JTNtyonqVPYxHqbmN3M3jlEBnQxecptlR+6yk/ZuhUwOJTHT1ActXRLyrQ8XIc74+9Yd37fwjWckSwFg==
+  dependencies:
+    tslib "^2.1.0"
 
 "@capacitor/geolocation@1.0.2":
   version "1.0.2"
@@ -2238,6 +2254,11 @@
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
+
+"@types/scriptjs@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@types/scriptjs/-/scriptjs-0.0.2.tgz#09a2287221a7a341fc6b95b005e4bfb2a5403538"
+  integrity sha1-CaIociGno0H8a5WwBeS/sqVANTg=
 
 "@types/source-list-map@*":
   version "0.1.2"
@@ -9679,6 +9700,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-apple-signin-auth@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-apple-signin-auth/-/react-apple-signin-auth-1.0.0.tgz#757f9d4c2fe5b75eb74850a6619981d9f7ad6cd5"
+  integrity sha512-uZ93QEY5uarW2xVEIHj/eFy9iHgs4KfW68+btdNIzkHx8L++1bBPRh4RqkIwencgP6+WGey6ay+yYOzIDlTSFA==
+
 react-dev-utils@^11.0.2:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.4.tgz#a7ccb60257a1ca2e0efe7a83e38e6700d17aa37a"
@@ -10436,6 +10462,11 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.6"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+scriptjs@^2.5.9:
+  version "2.5.9"
+  resolved "https://registry.yarnpkg.com/scriptjs/-/scriptjs-2.5.9.tgz#343915cd2ec2ed9bfdde2b9875cd28f59394b35f"
+  integrity sha512-qGVDoreyYiP1pkQnbnFAUIS5AjenNwwQBdl7zeos9etl+hYKWahjRTfzAZZYBv5xNHx7vNKCmaLDQZ6Fr2AEXg==
 
 select-hose@^2.0.0:
   version "2.0.0"
