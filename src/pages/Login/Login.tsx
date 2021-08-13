@@ -11,7 +11,8 @@ import appleIconBlack from '../../img/apple-icon-black.png';
 import waterfall from '../../movies/waterfall.mp4';
 import logo from '../../img/DayFeel-logos_white.png';
 import './Login.css';
-import { authorize } from '../../modules/user';
+import { url } from 'inspector';
+
 
 interface LoginProps {
 
@@ -83,7 +84,7 @@ const Login: React.FC<LoginProps> = () => {
         <IonPage>
             <IonContent>
             <video className="videoTag" autoPlay loop muted playsInline>
-                    <source src={waterfall} type="video/mp4"/>
+                    <source src={'https://ecoex-weather-forecast.s3.ap-northeast-2.amazonaws.com/waterfall.mp4'} type="video/mp4"/>
                 </video>
              
                 <div className="landing-page">
