@@ -53,7 +53,7 @@ pipeline {
         }
 
         // 
-         stage("Build ${APP_NAME}") {
+         stage('Build ${APP_NAME}') {
             agent {
                 docker {
                     image 'node:14.15.2-alpine'
@@ -81,23 +81,23 @@ pipeline {
 
             steps {
                 dir('./'){
-                    sh "docker build . -t ${APP_NAME}"
+                    sh 'docker build . -t ${APP_NAME}'
                 }
             }
         }
 
-        stage("Deploy ${APP_NAME}"){
+        stage('Deploy ${APP_NAME}'){
             agent any
 
             steps {
                 echo "Deploy ${APP_NAME}"
 
-                sh "docker ps -f name=${APP_NAME} -q | xargs --no-run-if-empty docker container stop"
-                sh "docker container ls -a -fname=${APP_NAME} -q | xargs -r docker container rm"
-                sh "docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi"
-                sh """
+                sh 'docker ps -f name=${APP_NAME} -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=${APP_NAME} -q | xargs -r docker container rm'
+                sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
+                sh '''
                 docker run -p 80:80 -d --name ${APP_NAME} ${APP_NAME}
-                """
+                '''
 
             }
 
