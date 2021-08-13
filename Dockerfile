@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-VOLUME /
+VOLUME /dayfeel-app
 
 ADD ./deploy/default.conf /etc/nginx/conf.d/default.conf
 
