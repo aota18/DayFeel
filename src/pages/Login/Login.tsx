@@ -69,10 +69,11 @@ const Login: React.FC<LoginProps> = () => {
 
     const signInWithApple = async(): Promise<void> => {
          SignInWithApple.authorize(options).then((res:any) => {
-             console.log(res);
-            dispatch(authorize({
-                code: res.response.authorizationCode,
-                token: res.response.identityToken
+      
+            dispatch(login({
+                name: res.response.givenName,
+                email: res.response.email,
+                imageUrl: " "
             }))
         })
     }
