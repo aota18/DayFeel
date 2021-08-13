@@ -92,9 +92,9 @@ pipeline {
             steps {
                 echo "Deploy ${APP_NAME}"
 
-                sh "docker ps -f name=${APP_NAME} -q | xargs --no-run-if-empty docker container stop"
-                sh "docker container ls -a -fname=${APP_NAME} -q | xargs -r docker container rm"
-                sh "docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi"
+                sh "docker ps -f name=dayfeel-app -q | xargs --no-run-if-empty docker container stop"
+                sh "docker container ls -a -fname=dayfeel-app -q | xargs -r docker container rm"
+                sh "docker images --no-trunc --all --quiet --filter='dangling=true' | xargs --no-run-if-empty docker rmi"
                 sh """
                 docker run -p 80:80 -d --name ${APP_NAME} ${APP_NAME}
                 """
