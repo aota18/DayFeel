@@ -90,5 +90,6 @@
   "devDependencies": {
     "@capacitor/cli": "3.0.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "homepage": "https://dayfeel.xyz"
 }
