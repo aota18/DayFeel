@@ -26,7 +26,7 @@ const Login: React.FC<LoginProps> = () => {
 
     let options: SignInWithAppleOptions = {
         clientId: "com.dayfeel",
-        redirectURI: "https://dev.swseo.io:3000/redirect",
+        redirectURI: "https://dayfeel.xyz/login",
         scopes: "name email",
         state: "state",
         nonce: "nounce"
