@@ -57,6 +57,7 @@ const Login: React.FC<LoginProps> = () => {
     const signInWithGoogle = async (): Promise<void> => {
         
         const result = await GoogleAuth.signIn();
+        console.log(result)
         const token = result.authentication.accessToken;
 
         dispatch(login({
@@ -70,7 +71,8 @@ const Login: React.FC<LoginProps> = () => {
 
     const signInWithApple = async(): Promise<void> => {
          SignInWithApple.authorize(options).then((res:any) => {
-      
+            
+            console.log(res);
             dispatch(login({
                 name: res.response.givenName,
                 email: res.response.email,
